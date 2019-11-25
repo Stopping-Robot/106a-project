@@ -70,11 +70,11 @@ def main():
     ## Add the controller here! IF you uncomment below, you should get the checkoff!
     c = Controller(Kp, Ki, Kd, Kw, Limb('right'))
 
-    for i in range(3):
+    for i in range(10):
         while not rospy.is_shutdown():
             try:
                 if ROBOT == "baxter":
-                    x, y, z = 0.85, -0.3, 0.12
+                    x, y, z = .67, -.2, .108
                 else:
                     raise Exception("not configured for sawyer yet.")
                 goal_1 = PoseStamped()
@@ -87,7 +87,7 @@ def main():
 
                 #Orientation as a quaternion
                 goal_1.pose.orientation.x = 0.0
-                goal_1.pose.orientation.y = 1.0
+                goal_1.pose.orientation.y = -1.0
                 goal_1.pose.orientation.z = 0.0
                 goal_1.pose.orientation.w = 0.0
 
@@ -100,7 +100,7 @@ def main():
                     raise Exception("Execution failed")
                 runtime = time.time() - start
                 with open('/home/cc/ee106a/fa19/class/ee106a-aby/ros_workspaces/final_project_kin/src/kin/src/scripts/timing.txt', 'a') as f:
-                    f.write(str(runtime) + ' move above point')
+                    f.write(str(runtime) + ' move above point \n')
             except Exception as e:
                 print e
                 traceback.print_exc()
@@ -110,12 +110,11 @@ def main():
         while not rospy.is_shutdown():
             try:
                 if ROBOT == "baxter":
-                    x, y, z = 0.85, -1.08, 0.12
+                    x, y, z = .67, -.2, 0
                 else:
                     raise Exception("not configured for sawyer yet.")
                 goal_2 = PoseStamped()
                 goal_2.header.frame_id = "base"
-
                 #x, y, and z position
                 goal_2.pose.position.x = x
                 goal_2.pose.position.y = y
@@ -123,7 +122,7 @@ def main():
 
                 #Orientation as a quaternion
                 goal_2.pose.orientation.x = 0.0
-                goal_2.pose.orientation.y = 1.0
+                goal_2.pose.orientation.y = -1.0
                 goal_2.pose.orientation.z = 0.0
                 goal_2.pose.orientation.w = 0.0
 
@@ -131,13 +130,12 @@ def main():
                 plan = planner.plan_to_pose(goal_2, [])
 
                 raw_input("Press <Enter> to move the right arm to goal pose 2: ")
-                print('I: ' , i)
                 start = time.time()
                 if not c.execute_path(plan):
                     raise Exception("Execution failed")
                 runtime = time.time() - start
                 with open('/home/cc/ee106a/fa19/class/ee106a-aby/ros_workspaces/final_project_kin/src/kin/src/scripts/timing.txt', 'a') as f:
-                    f.write(str(runtime) + ' move to point')
+                    f.write(str(runtime) + ' move to point \n')
             except Exception as e:
                 print e
                 traceback.print_exc()
