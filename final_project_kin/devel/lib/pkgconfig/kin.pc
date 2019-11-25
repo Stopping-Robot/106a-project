@@ -1,0 +1,8 @@
+prefix=/home/cc/ee106a/fa19/class/ee106a-aby/ros_workspaces/final_project_kin/devel
+
+Name: kin
+Description: Description of kin
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/cc/ee106a/fa19/class/ee106a-aby/ros_workspaces/final_project_kin/devel/lib 
+Requires: 
