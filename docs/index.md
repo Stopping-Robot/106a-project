@@ -36,7 +36,7 @@ No, the closest thing we had to a hack was the AR tags being used to determine t
 
 ### Aditya Nair
 Aditya is a third year EECS  major.  He is passionate about the intersection of multiple different fields with software engineering, including medical technology and finance.  When he gets the chance,  he plays  video  games  and does his  best to exercise (maybe after one more episode of brooklyn nine nine)
-### Contributions: 
+#### Contributions: 
 worked on motion planning, testing and integration
 
 ## 7. Additional Materials
