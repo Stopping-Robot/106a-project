@@ -34,7 +34,7 @@ We decided to use a Baxter robot for actuation. We used the left arm camera for 
 
 Based on our project proposal, and the task we outlined, our project worked as well as we could expect. Our program was able to:
 - detect a blue ball
-- isolate it’s velocity
+- isolate its velocity
 - predict where it would be in _n_ seconds, and
 - properly move the right gripper to cover the ball with a cup
 
@@ -51,31 +51,39 @@ Yes. AR tags were very buggy to the point of stationary AR tags flickering on Rv
 
 ##### Does your solution have any flaws or hacks? What improvements would you make if you had additional time?
 No, the closest thing we had to a hack was the AR tags being used to determine the plane of operability. If we had the additional time, we would most likely implement our own controller, create our own motion planning system, and improve upon the computer vision side so it could handle bottles (for extensions) and other objects.
+
 ## 6. Team
+![Team](images/team.jpg)
 
 ### Aditya Ganapathi
-I am a third year EECS and Business Administration major with experience in computer vision and robotics.  I have conducted research in the AUTOLab at U.C. Berkeley under Prof. Ken Goldberg and have worked on projects relating to deformable object manipulation.  In my free time, I enjoy watching football and going on hikes.
-###### Contributions:
+> I am a third year EECS and Business Administration major with experience in computer vision and robotics.  I have conducted research in the AUTOLab at U.C. Berkeley under Prof. Ken Goldberg and have worked on projects relating to deformable object manipulation.  In my free time, I enjoy watching football and going on hikes.
+
+##### Contributions:
 I primarily worked on the computer vision module for this project which consisted of detecting and tracking the ball as it was moving on the conveyor belt.  I also spent a lot of time thinking through the design steps of the project as well as helping integrate all components.
 
 ### Steven Lu
-Steven is a third year EECS major. He is passionate about EE and hardware, and has experience in digital, analog, and PCB design. In his free time, he enjoys building puzzles, playing video and board games, and going to escape rooms.
-###### Contributions:
+>Steven is a third year EECS major. He is passionate about EE and hardware, and has experience in digital, analog, and PCB design. In his free time, he enjoys building puzzles, playing video and board games, and going to escape rooms.
+
+**Contributions:**
+
 Steven designed and built the conveyor belt for this project, complete with custom PCBs to power and control the speed of the motor driving the belt. He also worked on and contributed to the movement/motion planning and integration portions of the project.
 
 ### Aditya Nair
-Aditya is a third year EECS  major.  He is passionate about the intersection of multiple different fields with software engineering, including medical technology and finance.  When he gets the chance,  he plays  video  games  and does his  best to exercise (maybe after one more episode of brooklyn nine nine)
-###### Contributions:
+> Aditya is a third year EECS  major.  He is passionate about the intersection of multiple different fields with software engineering, including medical technology and finance.  When he gets the chance,  he plays  video  games  and does his  best to exercise (maybe after one more episode of brooklyn nine nine)
+
+##### Contributions:
 He worked on motion planning, testing and integration
 
 ### Mrunal Puram
-Mrunal is a third year EECS major. He is passionate about exploring the field of AI and robotics, and is also curious about astronomy. In his free time, he enjoys playing basketball, rooting for the Warriors, and reading tech blogs.
-###### Contributions:
+> Mrunal is a third year EECS major. He is passionate about exploring the field of AI and robotics, and is also curious about astronomy. In his free time, he enjoys playing basketball, rooting for the Warriors, and reading tech blogs.
+
+##### Contributions:
 Mrunal helped implement the pixel to world coordinate transformation through the calculation of the plane ray intersection. He also contributed to the motion planning, testing, and integration portions of the project and refactored code. He was also responsible for setting up this website on GitHub Pages.
 
 ### William Wong
-Insert bio
-###### Contributions:
+> Insert bio
+
+##### Contributions:
 
 
 
