@@ -105,7 +105,7 @@ Our resulting product accomplished what we set out to accomplish. In terms of in
 Yes. AR tags were very buggy to the point of stationary AR tags flickering on Rviz. Asimov had a topic and feed swapped, where the head camera topic would give us the left hand camera feed, the right hand camera topic would give us the  head camera feed. The TF tree had no connection between /reference vs /. Halfway through building the motion tracking, we realized that the lighting was quite variable, which led to variable functionality. This was fixed by tuning values and playing around with the algorithm used. The biggest issue we faced was inconsistencies across worksessions - working conditions were not stable. We found that moving from one robot to another led to massive changes in performance and calibration
 
 ##### Does your solution have any flaws or hacks? What improvements would you make if you had additional time?
-No, the closest thing we had to a hack was the AR tags being used to determine the plane of operability. If we had the additional time, we would most likely implement our own controller, create our own motion planning system, and improve upon the computer vision side so it could handle bottles (for extensions) and other objects.
+No, the closest thing we had to a hack was the AR tags being used to determine the plane of operability. If we had the additional time, we would most likely implement our own controller, create our own motion planning system, and improve upon the computer vision side so it could handle bottles (for extensions) and other objects. Another change we could have made was to calculate the intercept point based on the nearest point for the arm instead of calculating the point where the object would be located at after a fixed timestep.
 
 ## 6. Team
 ![Team](images/team_resized.jpeg)
@@ -127,13 +127,13 @@ Steven designed and built the conveyor belt for this project, complete with cust
 > Aditya is a third year EECS  major.  He is passionate about the intersection of multiple different fields with software engineering, including medical technology and finance.  When he gets the chance,  he plays  video  games  and does his  best to exercise (maybe after one more episode of brooklyn nine nine)
 
 ##### Contributions:
-He worked on motion planning, testing and integration
+He worked on motion planning, testing and integration. He also spent a lot of time thinking through the design steps of the project as well as helping integrate all components.
 
 ### Mrunal Puram
 > Mrunal is a third year EECS major. He is passionate about exploring the field of AI and robotics, and is also curious about astronomy. In his free time, he enjoys playing basketball, rooting for the Warriors, and reading tech blogs.
 
 ##### Contributions:
-Mrunal helped implement the pixel to world coordinate transformation through the calculation of the plane ray intersection. He also contributed to the motion planning, testing, and integration portions of the project and refactored code. He was also responsible for setting up this website on GitHub Pages.
+Mrunal helped implement the pixel to world coordinate transformation through the calculation of the plane ray intersection. He also contributed to the motion planning, testing, and integration portions of the project and refactored code. He contributed to the final report and was also responsible for setting up this website on GitHub Pages.
 
 ### William Wong
 > William is a third year CS major with experience in software engineering, robotics and reinforcement learning. Outside of class, he conducts research under Professor Ken Goldberg at UC Berkeley’s AUTOLab.
