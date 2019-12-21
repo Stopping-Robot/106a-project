@@ -38,9 +38,10 @@ Based on our project proposal, and the task we outlined, our project worked as w
 - predict where it would be in _n_ seconds, and
 - properly move the right gripper to cover the ball with a cup
 
+### Demo Video
 <video src="images/demo.mp4" width="640" height="480" controls preload></video>
 
-Please check out the images and videos we recorded at the bottom of this page.
+Please check out more images and videos at the bottom of this page.
 
 ## 5. Conclusion
 
@@ -55,15 +56,13 @@ Yes. AR tags were very buggy to the point of stationary AR tags flickering on Rv
 No, the closest thing we had to a hack was the AR tags being used to determine the plane of operability. If we had the additional time, we would most likely implement our own controller, create our own motion planning system, and improve upon the computer vision side so it could handle bottles (for extensions) and other objects.
 
 ## 6. Team
-![Team](images/team.jpg)
-
 ![Team](images/team_resized.jpeg)
 
 ### Aditya Ganapathi
-> I am a third year EECS and Business Administration major with experience in computer vision and robotics.  I have conducted research in the AUTOLab at U.C. Berkeley under Prof. Ken Goldberg and have worked on projects relating to deformable object manipulation.  In my free time, I enjoy watching football and going on hikes.
+> Aditya is a third year EECS and Business Administration major with experience in computer vision and robotics. He has conducted research in the AUTOLab at U.C. Berkeley under Prof. Ken Goldberg and has worked on projects relating to deformable object manipulation. In his free time, he enjoys watching football and going on hikes.
 
 ##### Contributions:
-I primarily worked on the computer vision module for this project which consisted of detecting and tracking the ball as it was moving on the conveyor belt.  I also spent a lot of time thinking through the design steps of the project as well as helping integrate all components.
+Aditya primarily worked on the computer vision module for this project which consisted of detecting and tracking the ball as it was moving on the conveyor belt.  He also spent a lot of time thinking through the design steps of the project as well as helping integrate all components.
 
 ### Steven Lu
 >Steven is a third year EECS major. He is passionate about EE and hardware, and has experience in digital, analog, and PCB design. In his free time, he enjoys building puzzles, playing video and board games, and going to escape rooms.
@@ -91,10 +90,19 @@ Mrunal helped implement the pixel to world coordinate transformation through the
 
 
 ## 7. Additional Materials
+
+#### Successful Run 1
+
 <iframe src="https://drive.google.com/file/d/1BQAm_RjPR9sWDSu1Nwgtj4vPDHOydzAK/preview" width="640" height="480"></iframe>
+
+#### Successful Run 2
 
 <iframe src="https://drive.google.com/file/d/1suGYGNwerla3IVOqMhIisVCky3tWUqx2/preview" width="640" height="480"></iframe>
 
+#### Incorrect velocity calculation
+
 <iframe src="https://drive.google.com/file/d/1fNjhpO_wv8IXBtZxPNynihbfqFGpi8sk/preview" width="640" height="480"></iframe>
+
+#### Erroneous motion planning
 
 <iframe src="https://drive.google.com/file/d/1OA8bqGylb1t3J94DRzgeqRTQAbJtsRG4/preview" width="640" height="480"></iframe>
