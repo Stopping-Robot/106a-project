@@ -1,13 +1,13 @@
-# 106a-project
-1. .\/baxter.sh [robot\_name].local
-2. Enable robot: rosrun baxter\_tools enable\_robot.py -e for baxter
-   or: rosrun intera\_interface enable\_robot.py -e for sawyer
-3. roslaunch kin baxter\_moveit\_gui\_noexec.launch
-5. Start trajectory controller: rosrun baxter\_interface joint\_trajectory\_action\_server.py for baxter
-   or: rosrun intera\_interface joint\_trajectory\_action\_server.py for sawyer
-6. roslaunch baxter\_moveit\_config baxter\_grippers.launch for baxter
-   or: roslaunch sawyer\_moveit\_config sawyer\_moveit.launch electric\_gripper:=true for sawyer
-  7. roslaunch kin ar_track.launch
-7. rosrun kin main.py [baxter or sawyer]
+# 106A Project: Stopping Robot
+## Aditya Ganapathi, Steven Lu, Aditya Nair, Mrunal Puram, William Wong
 
-tf static transform, identity transform where reference is the parent
+There are two packages to look at: `ar_track_alvar` and `kin`.
+We modfied `/kin/launch/ar_track.launch` from the course labs to work with the Baxter's left arm camera. Most of the project code we wrote is in `/kin/src/scripts/final_code.py`
+
+1. SSH into baxter: `./baxter.sh [robot_name].local`
+2. Enable robot: `rosrun baxter_tools enable_robot.py -e` for baxter
+3. `roslaunch kin baxter_moveit_gui_noexec.launch`
+4. Start trajectory controller: `rosrun baxter_interface joint_trajectory_action_server.py`
+5. `roslaunch baxter_moveit_config baxter_grippers.launch`
+6. `roslaunch kin ar_track.launch`
+7. `rosrun kin final_code.py [ar_tag_num]`

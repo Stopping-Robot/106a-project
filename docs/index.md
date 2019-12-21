@@ -4,7 +4,7 @@
 ##### a. Describe the end goal of your project. b. Why is this an interesting project? What interesting problems do you need to solve to make your solution work? c. In what real-world robotics applications could the work from your project be useful?
 
 
-The end goal of our project was to be able to stop a moving object using Baxter as before it reached the end of its trajectory. Our project consistently stopped objects moving on a conveyor belt at variable speeds with a cup. In order to accomplish such reliability, we had to solve a few interesting problems: how to translate from a pixel captured by a camera to a world frame without depth; identifying an object and distinguishing it from its background or other objects; getting accurate velocity predictions; and being able to always find motion plans. Upon accomplishing this, we would be able to move on to stopping rolling objects, stopping one out of many objects, or even grasping and picking up the object. This project has many real-world applications, from assembly line robots that have to interact with objects moving along a conveyor belt to robots that could intercept and catch falling or thrown objects.
+The end goal of our project is to be able to stop a moving object using Baxter as before it reached the end of its trajectory. Our project consistently stopped objects moving on a conveyor belt at variable speeds with a cup. In order to accomplish such reliability, we had to solve a few interesting problems: how to translate from a pixel captured by a camera to a world frame without depth; identifying an object and distinguishing it from its background or other objects; getting accurate velocity predictions; and being able to always find motion plans. Upon accomplishing this, we would be able to move on to stopping rolling objects, stopping one out of many objects, or even grasping and picking up the object. This project has many real-world applications, from assembly line robots that have to interact with objects moving along a conveyor belt to robots that could intercept and catch falling or thrown objects.
 
 ## 2. Design
 
@@ -94,11 +94,10 @@ He worked on motion planning, testing and integration
 Mrunal helped implement the pixel to world coordinate transformation through the calculation of the plane ray intersection. He also contributed to the motion planning, testing, and integration portions of the project and refactored code. He was also responsible for setting up this website on GitHub Pages.
 
 ### William Wong
-> Insert bio
+> William is a third year CS major with experience in software engineering, robotics and reinforcement learning. Outside of class, he conducts research under Professor Ken Goldberg at UC Berkeley’s AUTOLab.
 
 ##### Contributions:
-
-
+William worked on robot motion planning, arm movement and transforming from pixel coordinate frame to world coordinates. He also assisted with setting up computer vision to handle a future extension of sorting objects moving down a conveyor belt.
 
 ## 7. Additional Materials
 
