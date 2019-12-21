@@ -33,7 +33,9 @@ Yes. AR tags were very buggy to the point of stationary AR tags flickering on Rv
 ##### Does your solution have any flaws or hacks? What improvements would you make if you had additional time?
 No, the closest thing we had to a hack was the AR tags being used to determine the plane of operability. If we had the additional time, we would most likely implement our own controller, create our own motion planning system, and improve upon the computer vision side so it could handle bottles (for extensions) and other objects.
 ## 6. Team
-
+#Aditya Nair
+Aditya is a third year EECS  major.  He is passionate about the intersection of multiple different fields with software engineering, including medical technology and finance.  When he gets the chance,  he plays  video  games  and does his  best to exercise (maybe after one more episode of brooklyn nine nine)
+#Contributions: worked on motion planning, testing and integration
 ## 7. Additional Materials
 <iframe src="https://drive.google.com/file/d/1BQAm_RjPR9sWDSu1Nwgtj4vPDHOydzAK/preview" width="640" height="480"></iframe>
 
