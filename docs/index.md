@@ -1,8 +1,10 @@
-# 106A Final Project: Stopping Robot
+# EECS 106A Final Project: Stopping Robot
+
+## Group 42: Aditya Ganapathi, Steven Lu, Aditya Nair, Mrunal Puram, William Wong
+
 ## 1. Introduction
 
 ##### a. Describe the end goal of your project. b. Why is this an interesting project? What interesting problems do you need to solve to make your solution work? c. In what real-world robotics applications could the work from your project be useful?
-
 
 The end goal of our project is to be able to stop a moving object using Baxter as before it reached the end of its trajectory. Our project consistently stopped objects moving on a conveyor belt at variable speeds with a cup. In order to accomplish such reliability, we had to solve a few interesting problems: how to translate from a pixel captured by a camera to a world frame without depth; identifying an object and distinguishing it from its background or other objects; getting accurate velocity predictions; and being able to always find motion plans. Upon accomplishing this, we would be able to move on to stopping rolling objects, stopping one out of many objects, or even grasping and picking up the object. This project has many real-world applications, from assembly line robots that have to interact with objects moving along a conveyor belt to robots that could intercept and catch falling or thrown objects.
 
