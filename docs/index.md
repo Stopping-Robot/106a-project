@@ -45,6 +45,37 @@ We built a conveyor belt as a means of making the project more manageable, as de
 To build the conveyor belt, we used pieces of metal as the frame, a DC motor, 12V lithium ion battery, some sprockets, and friction tank tread as the belt. To be able to control the speed of the conveyor, we used a custom motor controller PCB that one of our team members designed previously, which uses an Arduino to change the PWM signals to vary speed.
 Other parts we used include solo cups and ping pong balls.
 
+##### Describe any software you wrote in detail.
+
+In order to accurately predict the velocity of the ball on the conveyor belt, we first needed to robustly track it through different backgrounds, lighting conditions and camera angles.  To do this, we first had to segment the ball in the image space.  We used the popular technique of thresholding in the HSV color space.  HSV is commonly used over RGB for thresholding due to its greater invariance to lighting by separating image intensity from color information.
+
+![cv](images/cv.jpg)
+
+Using this method and by fine-tuning the thresholding values, we were able to accurately segment the moving ball in the frame at real-time rates.  After segmenting the ball, we computed the center of mass of the segmented region by calculating the expectation of the blob.  We used this center of mass and its position over time to estimate the linear velocity of the ball.
+
+<video src="images/cv_tracking.mp4" width="640" height="480" controls preload></video>
+
+
+##### System overview and code explanation
+
+**System Overview**
+
+First, we use computer vision to identify and segment the ball, tracking its location in the camera pixel coordinates. From there, we convert the position into world coordinates, and track its movement over time in order to determine the velocity. The velocity, we are able to determine an intercept position to send the arm to. We then compute the motion plan, and send the arm to intercept the ball when the time comes.
+
+
+**Code Explanation**
+1. Most of our code was written in `/kin/src/scripts/final_code.py`. It takes in one command line argument, which is the number of the AR tag. At the bottom of the file, it initializes a new node and a new `StaticTransformBroadcaster`. It then initializes an `image_converter` object that we had defined and calls `ic.run()`.
+
+2. The `image_converter`’s `init` function initializes a `Mover` object, which has a function `move` to move to a specified world coordinate. The `Mover` object also has a `delayed_move` function which we use to move it to the intercept position at the right time.
+
+3. The `ic.getStopPosition()` function returns an intercept point and the time at which the arm needs to get there. It calls `ic.getDesiredPixel` (which returns  `ic.desiredPixel`, that is continuously overridden by the `callback` function that performs CV) to get the pixels at two different time steps. Once it gets the two pixels, it converts them to world coordinates using the `camToWorld` function.
+
+4. The `camToWorld` function first converts the pixel to a ray in camera coordinates (`pixToCam`). This ray is then converted to world coordinates through the `rayToWorld` function, which calls the `LinePlaneCollision` function to determine where in world coordinates does the camera ray intersect with the plane of the detected object.
+
+5. This world coordinate is now returned to the `getStopPosition` function, which then takes two world coordinates, finds dx and dt to calculate a velocity, and then calculates an intercept point and time based on the `time_to_stop` parameter. This intercept point is returned to the `run` function.
+
+6. The `ic.run()` function is a continuous loop that moves to a specified start position, gets a new intercept position and time, and calls the `Mover.delayedMove()` function with that intercept position and time, and then loops back.
+
 
 ## 4. Results
 ##### How well did your project work? What tasks did it perform?

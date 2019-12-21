@@ -132,7 +132,7 @@ class Mover:
             # TODO: Remove the raw_input for the demo.
             # x = raw_input("Move?")
             if not self.c.execute_path(plan):
-                raise Exception("Execution failed")    
+                raise Exception("Execution failed")
         except Exception as e:
             print(e)
             traceback.print_exc()
@@ -161,7 +161,7 @@ class Mover:
                 pass
 
             if not self.c.execute_path(plan):
-                raise Exception("Execution failed")    
+                raise Exception("Execution failed")
         except Exception as e:
             print(e)
             traceback.print_exc()
@@ -187,7 +187,7 @@ class Mover:
             # TODO: Remove the raw_input for the demo.
             x = raw_input("Move?")
             if not self.c.execute_path(plan):
-                raise Exception("Execution failed")    
+                raise Exception("Execution failed")
         except Exception as e:
             print(e)
             traceback.print_exc()
@@ -333,7 +333,7 @@ class image_converter:
 
         # return the resized image
         return resized
-    
+
     def grab_contours(self, cnts):
       # if the length the contours tuple returned by cv2.findContours
       # is '2' then we are using either OpenCV v2.4, v4-beta, or
@@ -367,7 +367,7 @@ class image_converter:
         except CvBridgeError as e:
             print(e)
 
-        
+
         #(rows,cols, channel) = cv_image.shape
         #if cols > 60 and rows > 60 :
         #  cv2.circle(cv_image, self.getDesiredPixel(), 10, 255)
@@ -383,7 +383,7 @@ class image_converter:
         #60, 190  200, 280
         blueLower = (60, 130, 100)
         blueUpper = (260, 180, 280)
-        
+
         pts = deque(maxlen=64)
 
         # resize the frame, blur it, and convert it to the HSV
@@ -420,7 +420,7 @@ class image_converter:
         # red_cnts = cv2.findContours(redMask.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         # red_cnts = self.grab_contours(red_cnts)
         center = None
- 
+
     # only proceed if at least one contour was found
         if len(blue_cnts) > 0:
             # find the largest contour in the mask, then use
@@ -431,7 +431,7 @@ class image_converter:
             ((x, y), radius) = cv2.minEnclosingCircle(c)
             M = cv2.moments(c)
             center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
-     
+
             # only proceed if the radius meets a minimum size
             if radius > 10:
                 # draw the circle and centroid on the frame,
@@ -450,7 +450,7 @@ class image_converter:
         #     ((x, y), radius) = cv2.minEnclosingCircle(c)
         #     M = cv2.mcenteroments(c)
         #     center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
-     
+
         #     # only proceed if the radius meets a minimum size
         #     if radius > 10:
         #         # draw the circle and centroid on the frame,
@@ -460,7 +460,7 @@ class image_converter:
         #         cv2.circle(cv_image, center, 5, (0, 0, 255), -1)
         #     else:
         #         self.desiredPixel = (None, 0)
-     
+
         # update the points queue
         pts.appendleft(center)
         # loop over the set of tracked points
@@ -469,7 +469,7 @@ class image_converter:
         # them
             if pts[i - 1] is None or pts[i] is None:
                 continue
-     
+
             # otherwise, compute the thickness of the line and
             # draw the connecting lines
             thickness = int(np.sqrt(args["buffer"] / float(i + 1)) * 2.5)
@@ -510,7 +510,7 @@ class image_converter:
 
         ps = PoseStamped()
         ps.header.stamp = rospy.Time.now()
-        ps.header.frame_id = ar_marker 
+        ps.header.frame_id = ar_marker
         ps.pose.position.x = 0
         ps.pose.position.y = 0
         ps.pose.position.z = self.conveyor_z
@@ -525,7 +525,7 @@ class image_converter:
 
         ps1 = PoseStamped()
         ps1.header.stamp = rospy.Time.now()
-        ps1.header.frame_id = ar_marker 
+        ps1.header.frame_id = ar_marker
         ps1.pose.position.x = 0
         ps1.pose.position.y = 0
         ps1.pose.position.z = 1
@@ -546,7 +546,7 @@ class image_converter:
         pt = self.LinePlaneCollision(planeNormal, planePoint, rayDirection, rayPoint)
         ps2 = PoseStamped()
         ps2.header.stamp = rospy.Time.now()
-        ps2.header.frame_id = ar_marker 
+        ps2.header.frame_id = ar_marker
         ps2.pose.position.x = pt[0]
         ps2.pose.position.y = pt[1]
         ps2.pose.position.z = pt[2]
@@ -604,11 +604,11 @@ class image_converter:
 
                 pose_pix = self.rayToWorld(self.trans3, ray, self.ar_marker)
                 pose_yay = tf2_geometry_msgs.do_transform_pose(pose_pix, self.trans0)
-                pose_lmao = tf2_geometry_msgs.do_transform_pose(pose_yay, self.trans1)
-                print("RIP", pose_lmao)
-                pt_lmao = [pose_lmao.pose.position.x,  pose_lmao.pose.position.y,  pose_lmao.pose.position.z]
+                pose_transformed = tf2_geometry_msgs.do_transform_pose(pose_yay, self.trans1)
+                print("point:", pose_transformed)
+                pt_lmao = [pose_transformed.pose.position.x,  pose_transformed.pose.position.y,  pose_transformed.pose.position.z]
                 return pt_lmao
-            
+
             except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException) as e:
                 run_while = True
                 print(e)
@@ -625,7 +625,7 @@ class image_converter:
         print("Pixel1 found:", pixel1_world, time1)
         pixel2_world = self.camToWorld(pixel2)
         print("Pixel2 found:", pixel2_world, time2)
-       
+
 
 
         pixel3_world = (pixel2_world[0]-pixel1_world[0], pixel2_world[1]-pixel1_world[1])
@@ -656,7 +656,7 @@ class image_converter:
             rospy.sleep(2)
             '''
             if self.detected_class == 'blue':
-                self.Mover.move(drop_point[0] + self.sweep_dist, drop_point[1], drop_point[2]) 
+                self.Mover.move(drop_point[0] + self.sweep_dist, drop_point[1], drop_point[2])
             elif cself.detected_class == 'red':
                 self.Mover.move(drop_point[0] - self.sweep_dist, drop_point[1], drop_point[2])
             '''
@@ -665,7 +665,7 @@ if __name__ == '__main__':
     # Check if the node has received a signal to shut down
     # If not, run the talker method
 
-    #Run this program as a new node in the ROS computation graph 
+    #Run this program as a new node in the ROS computation graph
     #called /turtlebot_controller.
     rospy.init_node('our_controller', anonymous=True)
 
@@ -674,13 +674,13 @@ if __name__ == '__main__':
     static_transformStamped = TransformStamped()
     static_transformStamped.header.stamp = rospy.Time.now()
     static_transformStamped.header.frame_id = "/reference/left_hand_camera"
-    static_transformStamped.child_frame_id = "/left_hand_camera" 
+    static_transformStamped.child_frame_id = "/left_hand_camera"
 
-    static_transformStamped.transform.translation.x = 0 
+    static_transformStamped.transform.translation.x = 0
     static_transformStamped.transform.translation.y = 0
     static_transformStamped.transform.translation.z = 0
 
-    static_transformStamped.transform.rotation.x = 0 
+    static_transformStamped.transform.rotation.x = 0
     static_transformStamped.transform.rotation.y = 0
     static_transformStamped.transform.rotation.z = 0
     static_transformStamped.transform.rotation.w = 1
