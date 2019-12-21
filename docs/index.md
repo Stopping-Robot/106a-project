@@ -18,12 +18,18 @@ We decided to use a Baxter robot for actuation. We used the left arm camera for 
 ##### What design choices did you make when you formulated your design? What trade-offs did you have to make?
 
 - Our biggest decision was formulating how we were going to reliably move an object across a table. We first began with rolling a ping pong ball across a table but found that it was too light and often rolled unpredictably in different directions. We experimented with rolling a tennis ball instead, but the seams on the ball caused it to turn unexpectedly.  With a puck, there was too much friction on the table for us to be able to slide it across a significant amount. Modeling unpredictable rolling by the balls would be too difficult as there were too many variables to take into account including minor tilts in the table surface. We decided to instead build a conveyor belt that moved an object across the table in a predictable manner. We did not want to simplify our problem too much so our solution had the ability to handle variable speeds. Since the internal state was not synchronized with the speed of the conveyor belt, we ensured that the system was relying on motion tracking and could handle variable speeds for the conveyor belt.
+
+- Another choice we had to make was whether to use the Baxter or Sawyer. The Baxter offered two arms, which allowed us to use the built-in camera, whereas the Sawyer only had one arm and no extra camera, but was faster and more accurate. Since the Baxter’s left hand camera was good enough for the project, along with the fact that there were 3 Baxters in the lab as opposed to 1 working Sawyer (there was a greater availability for a Baxter), we decided to use a Baxter.
+
 - We also decided to not use a RealSense camera and instead used the Baxter’s left arm camera. This was a critical tradeoff as the RealSense camera could have provided a depth map and would have given us additional data to play with. However, we realized through tinkering with the Baxter that we did not need the depth values and instead calculated the intersection of the left arm camera’s ray with the plane to determine the position of an object in world coordinates.
 
 
 ##### How do these design choices impact how well the project meets design criteria that would be encountered in a real engineering application, such as robustness, durability, and efficiency?
 
 - Our design choice made our project more applicable to current real world environments where robots on assembly lines see conveyor belts in front of them. Not having to create an extremely complex model of ball motion on a table with high variability allowed us to have high robustness as well as efficiency in CV and velocity calculation.
+
+- By choosing a Baxter over Sawyer, we might have lost some accuracy as the Sawyer’s arm was faster and more precise, but the lack of a second arm/camera and the low availability would’ve required us to implement major changes to the project with limited timeslots.
+
 - By not using a RealSense, we eliminated a potential point of failure and ensured the system was relatively simple. Maybe the RealSense would have been more useful for performing more complex tasks, but we feel that we did not need the $200 camera to efficiently perform the tasks we had outlined.
 
 
@@ -68,6 +74,7 @@ No, the closest thing we had to a hack was the AR tags being used to determine t
 
 ## 6. Team
 ![Team](images/team_resized.jpeg)
+*Aditya Ganapathi, William Wong, Aditya Nair, Steven Lu, Mrunal Puram*
 
 ### Aditya Ganapathi
 > Aditya is a third year EECS and Business Administration major with experience in computer vision and robotics. He has conducted research in the AUTOLab at U.C. Berkeley under Prof. Ken Goldberg and has worked on projects relating to deformable object manipulation. In his free time, he enjoys watching football and going on hikes.
@@ -100,6 +107,13 @@ Mrunal helped implement the pixel to world coordinate transformation through the
 William worked on robot motion planning, arm movement and transforming from pixel coordinate frame to world coordinates. He also assisted with setting up computer vision to handle a future extension of sorting objects moving down a conveyor belt.
 
 ## 7. Additional Materials
+
+### Code
+The code for the project can be found at the GitHub repo: [https://github.com/Stopping-Robot/106a-project](https://github.com/Stopping-Robot/106a-project)
+
+There are two packages to look at: `ar_track_alvar` and `kin`. The `final_project_kin` folder can be ignored.
+
+We modified `/kin/launch/ar_track.launch` from the course labs to work with the Baxter's left arm camera. Most of the project code we wrote is in `/kin/src/scripts/final_code.py`. Instructions to run the code can be found in the `README` in the repo.
 
 #### Successful Run 1
 
