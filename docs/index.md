@@ -38,6 +38,8 @@ Based on our project proposal, and the task we outlined, our project worked as w
 - predict where it would be in _n_ seconds, and
 - properly move the right gripper to cover the ball with a cup
 
+<video src="images/demo.mp4" width="640" height="480" controls preload></video>
+
 Please check out the images and videos we recorded at the bottom of this page.
 
 ## 5. Conclusion
@@ -47,13 +49,15 @@ Please check out the images and videos we recorded at the bottom of this page.
 Our resulting product accomplished what we set out to accomplish. In terms of individual components, motion planning and actual robot motion was a bit difficult to maintain because it seemed small errors would compound (may reflect issues with encoders or us moving the arm improperly). The motion tracking component was a bit buggy, but it was robust enough to withstand 7-10 trials before needing to be rebooted. The integration of the two was robust - the majority of the latency was limited to motion planning.
 
 ##### Did you encounter any particular difficulties?
-Yes. AR tags were very buggy to the point of stationary AR tags flickering on Rviz. Asimov had a topic and feed swapped, where the head camera topic would give us the left hand camera feed, the right hand camera topic would give us the  head camera feed. The TF tree had no connection between /reference vs /. Halfway through building the motion tracking, we realized that the lighting was quite variable, which led to variable functionality. This was fixed by tuning values and playing around with the algorithm used.The biggest issue we faced was inconsistencies across worksessions - working conditions were not stable. We found that moving from one robot to another led to massive changes in performance and calibration
+Yes. AR tags were very buggy to the point of stationary AR tags flickering on Rviz. Asimov had a topic and feed swapped, where the head camera topic would give us the left hand camera feed, the right hand camera topic would give us the  head camera feed. The TF tree had no connection between /reference vs /. Halfway through building the motion tracking, we realized that the lighting was quite variable, which led to variable functionality. This was fixed by tuning values and playing around with the algorithm used. The biggest issue we faced was inconsistencies across worksessions - working conditions were not stable. We found that moving from one robot to another led to massive changes in performance and calibration
 
 ##### Does your solution have any flaws or hacks? What improvements would you make if you had additional time?
 No, the closest thing we had to a hack was the AR tags being used to determine the plane of operability. If we had the additional time, we would most likely implement our own controller, create our own motion planning system, and improve upon the computer vision side so it could handle bottles (for extensions) and other objects.
 
 ## 6. Team
 ![Team](images/team.jpg)
+
+![Team](images/team_resized.jpeg)
 
 ### Aditya Ganapathi
 > I am a third year EECS and Business Administration major with experience in computer vision and robotics.  I have conducted research in the AUTOLab at U.C. Berkeley under Prof. Ken Goldberg and have worked on projects relating to deformable object manipulation.  In my free time, I enjoy watching football and going on hikes.
@@ -64,8 +68,7 @@ I primarily worked on the computer vision module for this project which consiste
 ### Steven Lu
 >Steven is a third year EECS major. He is passionate about EE and hardware, and has experience in digital, analog, and PCB design. In his free time, he enjoys building puzzles, playing video and board games, and going to escape rooms.
 
-**Contributions:**
-
+##### Contributions:
 Steven designed and built the conveyor belt for this project, complete with custom PCBs to power and control the speed of the motor driving the belt. He also worked on and contributed to the movement/motion planning and integration portions of the project.
 
 ### Aditya Nair
