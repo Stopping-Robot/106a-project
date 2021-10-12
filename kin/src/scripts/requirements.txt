@@ -59,7 +59,7 @@ moveit-ros-visualization==0.9.17
 node-manager-fkie==0.8.12
 numpy==1.17.2
 onboard==1.2.0
-opencv-python==3.4.3.18
+opencv-python==3.4.7.28
 openni2-launch==0.4.2
 padme==1.1.1
 pexpect==4.0.1
